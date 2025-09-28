@@ -1,0 +1,170 @@
+<div class="contact-container">
+  <div class="contact-header">
+    <h1 class="contact-title">Contact Us</h1>
+    <p class="contact-subtitle">We will help you in the best possible way</p>
+  </div>
+
+  <div class="contact-content">
+    <!-- Contact Info Section -->
+    <div class="contact-info-section">
+      <div class="info-card">
+        <div class="info-header">
+          <h2>Get In Touch</h2>
+          <p>Reach out to us and we'll respond as soon as possible</p>
+        </div>
+
+        <!-- Phone Numbers -->
+        <div class="contact-item">
+          <div class="contact-icon phone">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.58.82 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.82 3.58 1 1 0 01-.21 1.11l-2.2 2.2z"/>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <h3>Phone Numbers</h3>
+            <p><a href="tel:+924237189212">+92 42 37189212</a></p>
+            <p><a href="tel:+923224557909">+92 322 4557909</a></p>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="contact-item">
+          <div class="contact-icon email">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <h3>Email Address</h3>
+            <p><a href="mailto:info@cot-house.com">info@cot-house.com</a></p>
+            <p><a href="mailto:support@cot-house.com">support@cot-house.com</a></p>
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div class="contact-item">
+          <div class="contact-icon address">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <h3>Our Location</h3>
+            <p>909, 9th Floor, Holy Tower</p>
+            <p>Lalik Jan Chowk, Phase 2, DHA</p>
+            <p>Lahore 54810, Pakistan</p>
+          </div>
+        </div>
+
+        <!-- Business Hours -->
+        <div class="contact-item">
+          <div class="contact-icon hours">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12,6 12,12 16,14"/>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <h3>Business Hours</h3>
+            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+            <p>Saturday: 10:00 AM - 4:00 PM</p>
+            <p>Sunday: Closed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map-section">
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d435519.22701473636!2d74.00471539999999!3d31.483103599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sPhase%202%20Defence%20Housing%20Authority%2C%20Lahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1635789012345!5m2!1sen!2s"
+          width="100%" 
+          height="400" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div class="map-info">
+        <h3>Find Us</h3>
+        <p>Located in the heart of DHA Phase 2, Lahore. Our office is easily accessible and we're always ready to welcome you.</p>
+        <a href="https://goo.gl/maps/your-location" target="_blank" class="directions-btn">
+          Get Directions
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form Section -->
+  <div class="contact-form-section">
+    <div class="form-container">
+      <h2>Send us a Message</h2>
+      <p>Have a question or want to discuss a project? Drop us a line!</p>
+      
+      <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" formControlName="name" required>
+            <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="error-message">
+              Name is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" formControlName="email" required>
+            <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="error-message">
+              Valid email is required
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" formControlName="phone">
+          </div>
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" formControlName="company">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <select id="subject" formControlName="subject" required>
+            <option value="">Select a subject</option>
+            <option value="general">General Inquiry</option>
+            <option value="quote">Request a Quote</option>
+            <option value="support">Customer Support</option>
+            <option value="partnership">Partnership Opportunity</option>
+          </select>
+          <div *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched" class="error-message">
+            Subject is required
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" formControlName="message" rows="5" required placeholder="Tell us about your project or inquiry..."></textarea>
+          <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="error-message">
+            Message is required
+          </div>
+        </div>
+        
+        <button type="submit" class="submit-btn" [disabled]="isSubmitting">
+          <span *ngIf="!isSubmitting">Send Message</span>
+          <span *ngIf="isSubmitting">Sending...</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22,2 15,22 11,13 2,9"></polygon>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
