@@ -4,6 +4,7 @@
 body {
   margin: 0;
   padding: 0;
+  padding-top: 120px; /* Applica a tutte le pagine per default */
   font-family: Arial, sans-serif;
   background-image: url('./assets/foto/foto1.jpg');
   background-size: cover;
@@ -11,6 +12,11 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
+}
+
+/* Rimuove il padding SOLO per la homepage */
+.home-container {
+  margin-top: -120px; /* Compensa il padding del body */
 }
 
 /* Overlay per migliorare la leggibilità del testo sopra l'immagine */
@@ -31,4 +37,33 @@ body::before {
   padding: 20px;
   border-radius: 10px;
   margin: 20px;
+}
+
+/* Rimuoviamo i margin dai contenitori specifici dato che ora usiamo il body */
+.about-container,
+.contact-container,
+.services-container {
+  margin-top: 0;
+  min-height: auto;
+}
+
+/* Media queries per il body responsive */
+@media (max-width: 768px) {
+  body {
+    padding-top: 90px;
+  }
+  
+  .home-container {
+    margin-top: -90px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 80px;
+  }
+  
+  .home-container {
+    margin-top: -80px;
+  }
 }

@@ -13,7 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -43,8 +43,10 @@
 }
 
 .logo-img {
-  height: 40px;
+  height: 80px;
   width: auto;
+  max-width: 300px;
+  object-fit: contain;
 }
 
 .logo-text {
@@ -182,6 +184,10 @@
   .logo-text {
     font-size: 1.2rem;
   }
+  
+  .logo-img {
+    height: 65px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -194,6 +200,6 @@
   }
   
   .logo-img {
-    height: 35px;
+    height: 55px;
   }
 }
