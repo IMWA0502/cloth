@@ -31,22 +31,82 @@
 	gap: 1.5rem;
 }
 
-.image-button {
-	position: relative;
+/* Layout for rows: make children (buttons/cards) align horizontally */
+.riga {
 	display: flex;
-	width: 100%;
-	flex-direction: column;
+ 	flex-direction: row;
+ 	align-items: center; /* center items vertically so cards don't stretch full height */
+ 	justify-content: center; /* center the buttons horizontally */
+ 	flex-wrap: nowrap; /* will wrap on small screens via media query */
+	gap: 2rem; /* larger spacing for big buttons */
+}
+
+.riga > .products-grid {
+	/* make each column occupy about one third of the row and be responsive */
+	flex: 0 1 calc(33.333% - 2rem);
+	max-width: calc(33.333% - 2rem);
+	/* center the single button inside and prevent the grid from stretching the column */
+	display: flex;
 	align-items: center;
 	justify-content: center;
-	text-decoration: none;
-	border-radius: 16px;
+
+}
+
+
+
+/* Responsive: allow wrapping on smaller screens and stack vertically */
+@media (max-width: 900px) {
+	.riga {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.riga > .products-grid {
+		flex: 1 1 100%;
+		max-width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* On small screens make buttons full-width and reasonable height */
+	.image-button {
+		width: 100%;
+		max-width: 420px;
+		min-height: 180px;
+		gap : 1rem;
+	}
+}
+
+/* Utility to show exactly 3 columns x 2 rows (use by adding class `limit-3x2` to the .products-grid)
+	 It constrains the visible area to two grid rows and hides any additional items. */
+.products-grid.limit-3x2 {
+	--product-row-height: 220px; /* adjust if your .image-button height changes */
+	grid-auto-rows: var(--product-row-height);
+	max-height: calc(var(--product-row-height) * 2 + 1.5rem); /* 2 rows + gap */
 	overflow: hidden;
-	background: rgba(255,255,255,0.1);
-	border: 1px solid rgba(255,255,255,0.2);
-	backdrop-filter: blur(6px);
-	box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-	transition: transform 0.25s ease, box-shadow 0.25s ease;
-	padding: 0.75rem;
+}
+
+.image-button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 18px;
+    overflow: hidden;
+    /* darker translucent panel so buttons pop on the wallpaper */
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 14px 46px rgba(0,0,0,0.55);
+    transition: transform 0.28s cubic-bezier(.2,.9,.3,1), box-shadow 0.28s ease, background 0.28s ease;
+    padding: 1.5rem;
+    min-height: 380px; /* larger card height as requested */
+    max-height: 520px; /* cap height to avoid extremely tall panels */
+    width: 380px; /* larger button width */
+    box-sizing: border-box;
 }
 
 .image-button:hover {
@@ -56,10 +116,11 @@
 
 .image-button-img {
 	display: block;
-	width: 100%;
-	max-width: 260px;
+	margin: 0 auto 0.75rem auto;
 	height: auto;
 	object-fit: contain;
+	max-width: 240px; /* larger images for bigger buttons */
+	width: auto;
 }
 
 .image-button-label {
@@ -80,7 +141,7 @@
 	}
 
 	.image-button-img {
-		max-width: 200px;
+		max-width: 240px;
 	}
 }
 
