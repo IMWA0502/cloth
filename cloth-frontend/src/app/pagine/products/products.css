@@ -265,4 +265,13 @@ h2 {
 	text-align: center;
 }
 
+.paragrafo {
+	margin: 2rem auto;
+	max-width: 800px;
+	font-size: 1.2rem;
+	line-height: 1.6;
+	color: #f0f0f0;
+	text-align: center;
+}
+
 

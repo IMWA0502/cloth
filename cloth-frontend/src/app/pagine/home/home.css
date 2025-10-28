@@ -353,7 +353,10 @@
   backdrop-filter: blur(10px);
   padding: 2.5rem 2rem;
   border-radius: 20px;
-  text-align: center;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
   color: white;
@@ -378,6 +381,16 @@
 .app-image.interior { background: linear-gradient(135deg, #3498db, #2980b9); }
 .app-image.home { background: linear-gradient(135deg, #2ecc71, #27ae60); }
 
+/* Additional app-image variants for the new detailed list */
+.app-image.textiles { background: linear-gradient(135deg, #f39c12, #f1c40f); }
+.app-image.upholstery { background: linear-gradient(135deg, #d35400, #e67e22); }
+.app-image.kitchen { background: linear-gradient(135deg, #16a085, #1abc9c); }
+.app-image.towels { background: linear-gradient(135deg, #2980b9, #3498db); }
+.app-image.hospital { background: linear-gradient(135deg, #34495e, #2c3e50); }
+.app-image.garments { background: linear-gradient(135deg, #8e44ad, #9b59b6); }
+.app-image.industrial { background: linear-gradient(135deg, #2c3e50, #34495e); }
+.app-image.denim { background: linear-gradient(135deg, #2f3e9e, #5b6bd1); }
+
 .app-card h3 {
   font-size: 1.3rem;
   font-weight: 600;
@@ -385,9 +398,44 @@
 }
 
 .app-card p {
-  line-height: 1.5;
-  opacity: 0.9;
+  line-height: 1.45;
+  opacity: 0.95;
+  margin: 0 0 0.75rem 0;
+}
+
+.app-divider {
+  width: 48px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(243,156,18,0.95), rgba(196,57,43,0.95));
+  margin: 0.75rem 0;
+}
+
+.include-list {
+  width: 100%;
+  color: #ecf0f1;
+  font-size: 0.95rem;
+}
+
+.include-list strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #f39c12;
+  font-weight: 700;
+}
+
+.include-list ul {
   margin: 0;
+  padding: 0 0 0 1.05rem;
+}
+
+.include-list li {
+  margin: 0.25rem 0;
+  line-height: 1.4;
+}
+
+.include-list li::marker {
+  color: #f39c12;
 }
 
 /* CTA Section */
@@ -459,6 +507,17 @@
   background: rgba(255, 255, 255, 0.1);
   border-color: white;
   transform: translateY(-2px);
+}
+
+/* Products overview CTA (centered button under the products grid) */
+.products-cta {
+  text-align: center;
+  margin: 1.5rem 0 0 0;
+}
+
+.products-cta .btn-cta {
+  padding: 0.9rem 2.2rem;
+  font-size: 1rem;
 }
 
 /* Stats Footer */
@@ -534,6 +593,16 @@
   .products-grid,
   .applications-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* on small screens center the card content for better balance */
+  .app-card {
+    text-align: center;
+    align-items: center;
+  }
+
+  .include-list ul {
+    padding-left: 0;
   }
   
   .stats-grid {
