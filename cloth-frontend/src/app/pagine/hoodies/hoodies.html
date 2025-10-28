@@ -1,0 +1,18 @@
+<div class="products-container">
+  <div class="products-header">
+    <h1 class="products-title">Hoodies</h1>
+    <p class="products-subtitle">All available sweatshirts</p>
+  </div>
+
+  <div class="products-grid">
+    <ng-container *ngIf="images?.length; else empty">
+      <button *ngFor="let img of images" class="image-button" aria-label="Felpa">
+        <img [src]="img" [alt]="'Felpa'" class="image-button-img" (error)="onImgError($event)" />
+      </button>
+    </ng-container>
+
+    <ng-template #empty>
+      <p>Nessuna immagine disponibile.</p>
+    </ng-template>
+  </div>
+</div>

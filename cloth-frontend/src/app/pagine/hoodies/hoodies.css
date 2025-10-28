@@ -1,0 +1,75 @@
+/* Hoodies page styles - keep consistent with products layout */
+.products-container {
+	/* use full viewport width so this page can use the whole screen */
+	max-width: none;
+	width: 100%;
+	margin: 0;
+	padding: 2rem 2rem;
+	box-sizing: border-box;
+}
+
+.products-header {
+	text-align: center;
+	/* reduced spacing under header to tighten vertical rhythm */
+	margin-bottom: 1rem;
+}
+
+.products-title { color: #ff0000; font-size: 5rem; margin: 0 }
+.products-subtitle { color: #ddd; margin: 0;font-size: 1.5rem; }
+
+.products-grid {
+	display: grid;
+	/* responsive: fill the available width with columns that are reasonably wide */
+	grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+	gap: 1rem 1.6rem; /* row-gap column-gap */
+	width: 100%;
+}
+
+/* Reuse same look & feel as products: uniform card sizes */
+.image-button {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	text-decoration: none;
+	border-radius: 18px;
+	overflow: hidden;
+	/* transparent card: no background, no border, no blur, no shadow */
+	background: transparent;
+	border: none;
+	backdrop-filter: none;
+	box-shadow: none;
+	transition: transform 0.22s cubic-bezier(.2,.9,.3,1), box-shadow 0.22s ease, background 0.22s ease;
+	padding: 0.2rem; /* reduce padding so cards take less vertical space */
+	/* allow natural height so rows are only as tall as their content */
+	height: auto;
+	min-height: 0;
+	max-height: none;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.image-button:hover { transform: translateY(-4px); }
+
+.image-button-img {
+	display: block;
+	margin: 0 auto;
+	width: auto;
+	max-width: 100%;
+	height: auto; /* image dictates the height so cards shrink to fit */
+	object-fit: contain; /* show the whole image */
+}
+
+@media (max-width: 900px) {
+	.products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	/* allow smaller min-height on tablet so rows are tighter */
+	.image-button { height: auto; min-height: 260px }
+}
+
+@media (max-width: 600px) {
+	.products-grid { grid-template-columns: 1fr }
+	.image-button { height: auto; min-height: 160px }
+	.image-button-img { max-width: 70%; }
+}
+
