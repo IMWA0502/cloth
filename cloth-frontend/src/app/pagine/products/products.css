@@ -42,10 +42,32 @@
 
 .products-grid {
 	display: grid;
-	/* Balanced column width so cards are large but not excessive */
-	grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
-	gap: 2rem; /* moderate spacing between cards */
+	/* Fixed maximum columns so items break into rows (4 columns x 2 rows on large screens).
+	   Responsive rules below reduce columns on smaller viewports. */
+	grid-template-columns: repeat(4, minmax(220px, 1fr));
+	grid-auto-rows: auto;
+	gap: 1.6rem; /* moderate spacing between cards */
 	width: 100%;
+	align-items: start;
+}
+
+/* Responsive column counts: keep layout predictable and create two rows on wide screens */
+@media (max-width: 1400px) {
+    .products-grid {
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 1000px) {
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Layout for rows: make children (buttons/cards) align horizontally */
@@ -112,15 +134,16 @@
 	align-items: center; /* center image horizontally */
 	justify-content: flex-start; /* image on top, label below */
 	text-decoration: none;
-	border-radius: 12px;
-	overflow: hidden;
-	background: transparent;
-	border: none;
+	border-radius: 14px;
+	overflow: visible;
+	background: rgba(255,255,255,0.02); /* subtle card surface */
+	border: 1px solid rgba(255,255,255,0.04);
 	transition: transform 0.22s cubic-bezier(.2,.9,.3,1), box-shadow 0.22s ease, background 0.22s ease;
-	padding: 1.5rem; /* larger padding for bigger buttons */
+	padding: 1rem; /* comfortable padding */
 	height: auto; /* allow natural height based on image and content */
 	width: 100%; /* fill the grid cell */
 	box-sizing: border-box;
+	box-shadow: 0 8px 24px rgba(0,0,0,0.28);
 }
 
 /* Image sizing: keep aspect ratio, allow larger images on wider screens */
@@ -131,32 +154,33 @@
 	height: auto;
 	object-fit: contain; /* show whole image without cropping */
 	margin: 0 auto; /* center smaller images */
+	transition: transform 0.28s ease;
 }
 
 /* Desktop: allow very large images and larger button area */
 /* Large/desktop: balanced sizes (smaller than previous extremes) */
 @media (min-width: 1400px) {
 	.image-button {
-		min-height: 620px;
-		padding: 1.25rem;
+		min-height: 420px;
+		padding: 1.1rem;
 	}
 	.image-button-img {
-		max-height: 520px;
+		max-height: 420px;
 	}
 	.image-button-label {
-		font-size: 1.05rem;
-		padding: 0.9rem 1.8rem;
+		font-size: 1.06rem;
+		padding: 0.6rem 1.4rem;
 	}
 }
 
 /* Medium screens */
 @media (min-width: 900px) and (max-width: 1399px) {
 	.image-button {
-		min-height: 460px;
-		padding: 1.1rem;
+		min-height: 360px;
+		padding: 0.9rem;
 	}
 	.image-button-img {
-		max-height: 380px;
+		max-height: 300px;
 	}
 }
 
@@ -170,7 +194,8 @@
 }
 
 .image-button:hover {
-	transform: translateY(-4px);
+	transform: translateY(-6px);
+	box-shadow: 0 18px 40px rgba(0,0,0,0.36);
 }
 
 .image-button {
@@ -220,7 +245,7 @@
 }
 
 .image-button:hover::after {
-	opacity: 0.45;
+	opacity: 0.35;
 	transform: rotate(-18deg) translateY(2px);
 }
 .image-button .image-button-label {
@@ -237,15 +262,17 @@
 
 
 .image-button-label {
-	margin-top: 0.75rem;
+	margin-top: 0.9rem;
 	font-weight: 700;
 	color: #ffffff;
-	letter-spacing: 0.5px;
+	letter-spacing: 0.6px;
 	text-transform: uppercase;
-	background: linear-gradient(135deg, #e74c3c, #c0392b);
-	padding: 0.6rem 1.2rem;
+	background: linear-gradient(135deg, rgba(231,76,60,0.95), rgba(192,57,43,0.95));
+	padding: 0.5rem 1rem;
 	border-radius: 999px;
-	box-shadow: 0 6px 18px rgba(231, 76, 60, 0.35);
+	box-shadow: 0 6px 18px rgba(231, 76, 60, 0.28);
+	text-align: center;
+	max-width: 90%;
 }
 
 @media (max-width: 480px) {
@@ -258,12 +285,7 @@
 	}
 }
 
-h2 {
-	color: #fd0000;
-	margin-top: 1rem;
-	font-size: 1.5rem;
-	text-align: center;
-}
+/* heading elements are not used in buttons; keep global styles minimal */
 
 .paragrafo {
 	margin: 2rem auto;
