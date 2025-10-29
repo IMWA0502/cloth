@@ -15,6 +15,12 @@ export class Products {
     this.router.navigate(['/contact']);
   }
 
+  // Metodo generico per navigare tramite click da template
+  navigateTo(path: string) {
+    // use absolute path array form to avoid unexpected relative navigation
+    this.router.navigate([path]);
+  }
+
   // Dati delle categorie per eventuale uso futuro
   categories = [
     {

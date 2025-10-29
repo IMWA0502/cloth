@@ -10,43 +10,45 @@
 
   <!-- Single responsive grid containing all product buttons -->
   <div class="products-grid">
-    <button class="image-button" routerLink="/hoodies" aria-label="Hoodies & Sweatshirt">
-      <img src="assets\bottoni\processed_image (2).png" alt="Hoodie" class="image-button-img" />
-      <div class="image-button-label">Hoodies &amp; Sweatshirt</div>
-    </button>
-
-    <button class="image-button" routerLink="/contact" aria-label="Garments">
-      <img src="assets\bottoni\processed_idustrial.webp" alt="Garments" class="image-button-img" />
+    <button type="button" class="image-button" (click)="navigateTo('/hoodies')" aria-label="Hoodies & Sweatshirt">
+      <img src="assets/bottoni/processed_image (2).png" alt="Hoodie" class="image-button-img" />
       <div class="image-button-label">Garments</div>
     </button>
 
-    <button class="image-button" routerLink="/jeans" aria-label="Hospital & Hotel Linen">
+    <button type="button" class="image-button" (click)="navigateTo('/contact')" aria-label="Garments">
+      <img src="assets/bottoni/processed_idustrial.webp" alt="Garments" class="image-button-img" />
+      <div class="image-button-label">Industrial Garments
+
+      </div>
+    </button>
+
+    <button type="button" class="image-button" (click)="navigateTo('/jeans')" aria-label="Hospital & Hotel Linen">
       <img src="assets/bottoni/processed_hotel.webp" alt="Hospital & Hotel Linen" class="image-button-img" />
       <div class="image-button-label">Hospital &amp; Hotel Linen</div>
     </button>
 
-    <button class="image-button" routerLink="/contact" aria-label="Towels & Bath Textiles">
-      <img src="assets\bottoni\processed_Towels.webp" alt="Towels & Bath" class="image-button-img" />
+    <button type="button" class="image-button" (click)="navigateTo('/contact')" aria-label="Towels & Bath Textiles">
+      <img src="assets/bottoni/processed_Towels.webp" alt="Towels & Bath" class="image-button-img" />
       <div class="image-button-label">Towels &amp; Bath Textiles</div>
     </button>
 
-    <button class="image-button" routerLink="/contact" aria-label="Kitchen Textiles">
-      <img src="assets\bottoni\processed_Kitchen.jpg" alt="Kitchen Textiles" class="image-button-img" />
+    <button type="button" class="image-button" (click)="navigateTo('/contact')" aria-label="Kitchen Textiles">
+      <img src="assets/bottoni/processed_Kitchen.jpg" alt="Kitchen Textiles" class="image-button-img" />
       <div class="image-button-label">Kitchen Textiles</div>
     </button>
 
-    <button class="image-button" routerLink="/contact" aria-label="Upholstery">
-      <img src="assets\bottoni\processed_Uphol.webp" alt="Upholstery" class="image-button-img" />
+    <button type="button" class="image-button" (click)="navigateTo('/contact')" aria-label="Upholstery">
+      <img src="assets/bottoni/processed_Uphol.webp" alt="Upholstery" class="image-button-img" />
       <div class="image-button-label">Upholstery</div>
     </button>
 
-    <button class="image-button" routerLink="/contact" aria-label="Home Textiles">
+    <button type="button" class="image-button" (click)="navigateTo('/contact')" aria-label="Home Textiles">
       <img src="assets/bottoni/processed_Home.png" alt="Home Textiles" class="image-button-img" />
       <div class="image-button-label">Home Textiles</div>
     </button>
 
-    <button class="image-button" routerLink="/contact" aria-label="Denim">
-      <img src="assets\bottoni\Denim-removebg-preview.png" alt="Denim" class="image-button-img" />
+    <button type="button" class="image-button" (click)="navigateTo('/contact')" aria-label="Denim">
+      <img src="assets/bottoni/Denim-removebg-preview.png" alt="Denim" class="image-button-img" />
       <div class="image-button-label">Denim</div>
     </button>
   </div>
