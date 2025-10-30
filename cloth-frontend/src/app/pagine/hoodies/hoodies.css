@@ -61,6 +61,15 @@
 	object-fit: contain; /* show the whole image */
 }
 
+/* Enlarge specific images visually without changing the card box */
+.image-button.enlarged .image-button-img {
+	
+	transform: translateY(1.5cm) scale(1.72);
+	transform-origin: center center;
+	
+}
+
+
 @media (max-width: 900px) {
 	.products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 	/* allow smaller min-height on tablet so rows are tighter */

@@ -6,13 +6,14 @@
 
   <div class="products-grid">
     <ng-container *ngIf="images?.length; else empty">
-      <button *ngFor="let img of images" class="image-button" aria-label="Felpa">
+      <button *ngFor="let img of images; let i = index" class="image-button" [class.enlarged]="isEnlarged(i)" aria-label="Felpa">
         <img [src]="img" [alt]="'Felpa'" class="image-button-img" (error)="onImgError($event)" />
       </button>
     </ng-container>
 
     <ng-template #empty>
-      <p>Nessuna immagine disponibile.</p>
+      <p *ngIf="!loadError">Nessuna immagine disponibile.</p>
+      <p *ngIf="loadError">Impossibile caricare le immagini in questo momento. Controlla che il server di sviluppo sia avviato e ricarica la pagina.</p>
     </ng-template>
   </div>
 </div>
