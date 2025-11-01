@@ -1,0 +1,16 @@
+<div class="products-header">
+		<h1 class="products-title">Denim</h1>
+	</div>
+
+<div class="products-container">
+	<div *ngIf="loadError" class="load-error">
+		<p>Impossibile caricare le immagini. Riprova più tardi.</p>
+		<button (click)="ngOnInit()">Riprova</button>
+	</div>
+
+	<div *ngIf="!loadError" class="products-grid">
+		<button class="image-button" *ngFor="let img of images; let i = index" (click)="goToContact()" title="Apri contatto">
+			<img [src]="img" (error)="onImgError($event)" class="image-button-img" alt="Jeans {{i + 1}}" />
+		</button>
+	</div>
+</div>

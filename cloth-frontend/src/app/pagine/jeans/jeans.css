@@ -1,0 +1,66 @@
+/* Reuse industrial gallery styles for Jeans */
+.products-container {
+	padding: 20px 12px;
+}
+.products-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.products-title { color: #ff0000; font-size: 5rem; margin: 0 }
+.products-subtitle { color: #ddd; margin: 0;font-size: 1.5rem; }
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(680px, 1fr));
+    gap: 1rem 1.6rem;
+    width: 100%;
+}
+
+.load-error {
+	text-align: center;
+	color: #333;
+	margin: 40px 0;
+}
+
+.products-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 8px;
+	justify-items: center;
+}
+
+.image-button {
+	width: 100%;
+	height: 620px;
+	border: none;
+	background: transparent;
+	padding: 0;
+	display: block;
+	overflow: hidden;
+}
+
+.image-button-img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	transition: transform 240ms ease, filter 240ms ease;
+	transform-origin: center center;
+}
+
+.image-button.enlarged .image-button-img {
+	transform: scale(2.18);
+}
+
+@media (max-width: 900px) {
+	.products-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 560px) {
+	.products-grid {
+		grid-template-columns: 1fr;
+	}
+}
+

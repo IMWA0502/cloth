@@ -1,1 +1,19 @@
-<p>bagno works!</p>
+<div class="products-container">
+  <div class="products-header">
+    <h1 class="products-title">Towels & Bath Textiles</h1>
+  </div>
+
+  <div class="products-grid">
+    <ng-container *ngIf="images?.length; else empty">
+      <button *ngFor="let img of images; let i = index" class="image-button" [class.enlarged]="isEnlarged(i)" aria-label="Towels & Bath Textiles">
+        <img [src]="img" [alt]="'Towels & Bath Textiles ' + (i + 1)" class="image-button-img" (error)="onImgError($event)" />
+      </button>
+    </ng-container>
+
+    <ng-template #empty>
+      <p *ngIf="!loadError">Nessuna immagine disponibile.</p>
+      <p *ngIf="loadError">Impossibile caricare le immagini in questo momento. Controlla che il server sia avviato e ricarica la pagina.</p>
+    </ng-template>
+  </div>
+</div>
+

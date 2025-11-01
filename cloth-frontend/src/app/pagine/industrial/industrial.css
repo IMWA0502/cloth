@@ -66,6 +66,19 @@
     
 }
 
+/* Make the SECOND card's image smaller without changing the card's box size.
+   This targets the second .image-button in the grid and reduces the visual size
+   of the contained image. We avoid changing .image-button { height } so the
+   box dimensions remain identical. */
+.products-grid .image-button:nth-child(2) .image-button-img {
+    /* reset the enlargement for this specific item */
+    transform: scale(1.60);
+    transform-origin: center center;
+    /* constrain the visual footprint of the image inside the fixed-height card */
+    max-width: 70%;
+    max-height: 70%;
+}
+
 /* Slightly reduce scale on hover so user sees subtle interaction */
 
 
