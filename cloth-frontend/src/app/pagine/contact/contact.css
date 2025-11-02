@@ -171,6 +171,28 @@
   box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
+/* Place the two additional maps on the same horizontal row */
+.map-variants {
+  display: flex;
+  gap: 1rem; /* spacing between the two maps */
+  align-items: stretch;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.map-variants .mappa2,
+.map-variants .mappa3 {
+  flex: 1 1 50%;
+  min-width: 0; /* allow flex children to shrink properly */
+}
+
+.map-variants iframe {
+  width: 100%;
+  height: 400px; /* keep a consistent height as in HTML */
+  border: 0;
+  border-radius: 12px; /* soften corners to match card look */
+}
+
 /* Contact Form Section */
 .contact-form-section {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -302,6 +324,15 @@
   
   .map-info {
     padding: 1.5rem;
+  }
+
+  /* Stack the two maps vertically on small screens */
+  .map-variants {
+    flex-direction: column;
+  }
+  .map-variants .mappa2,
+  .map-variants .mappa3 {
+    flex: 1 1 auto;
   }
 }
 
