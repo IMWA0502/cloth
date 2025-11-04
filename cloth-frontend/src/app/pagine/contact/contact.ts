@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import emailjs from '@emailjs/browser';
@@ -13,8 +14,12 @@ import { emailConfig } from '../../config/email.config';
 export class Contact {
   contactForm: FormGroup;
   isSubmitting = false;
+  // Safe URLs for Google Maps iframes
+  mapUrlMain!: SafeResourceUrl;
+  mapUrl2!: SafeResourceUrl;
+  mapUrl3!: SafeResourceUrl;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private sanitizer: DomSanitizer) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
@@ -23,6 +28,16 @@ export class Contact {
       subject: ['', [Validators.required]],
       message: ['', [Validators.required]]
     });
+
+    
+    const mapsMain = 'https://www.google.com/maps?q=31.4249856,73.1257195&z=16&output=embed';
+    const mapsUk = 'https://www.google.com/maps?q=Park+View+The+Yard,+Finchampstead+RG40+4JR&output=embed';
+  
+  const mapsUsaPlaceholder = 'https://www.google.com/maps?q=1419+Colchester+Rd,+Woodbridge,+VA+22191&z=16&output=embed';
+
+    this.mapUrlMain = this.sanitizer.bypassSecurityTrustResourceUrl(mapsMain);
+    this.mapUrl2 = this.sanitizer.bypassSecurityTrustResourceUrl(mapsUk);
+    this.mapUrl3 = this.sanitizer.bypassSecurityTrustResourceUrl(mapsUsaPlaceholder);
   }
 
   async onSubmit() {
